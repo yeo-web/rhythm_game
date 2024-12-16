@@ -2,13 +2,15 @@ package kr.ac.kumoh.s20231043.rhythm_game.controller
 
 import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/api/message")
+@CrossOrigin(origins = ["https://yeofrontend.netlify.app"])
 class MessageController {
+
     @GetMapping
-    @CrossOrigin(origins = ["http://localhost:3000"])
+    fun getRoot() = mapOf("status" to "success")
+
+    @GetMapping("/api/message")
     fun getMessage()= mapOf("status" to "success")
 }
